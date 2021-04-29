@@ -8,8 +8,6 @@
 
 
 
-
-
 本期主要面试考点
 
 ```
@@ -43,14 +41,12 @@
 
 
 
-![索引小抄一面对话](http://resource.zqtaotao.cn/wx/21/%E7%B4%A2%E5%BC%95%E5%B0%8F%E6%8A%84%E4%B8%80%E9%9D%A2.png)
+![索引小抄一面对话](https://img-blog.csdnimg.cn/20210421163640908.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NzgzODA2Mg==,size_22,color_FFFFFF,t_70#pic_center)
 
 
 
 
 ----
-
-
 
 
 
@@ -109,7 +105,7 @@ MySQL目前有Memory引擎和NDB引擎支持Hash索引。
 
 
 
-![二叉树](http://resource.zqtaotao.cn/wx/21/0420/%E4%BA%8C%E5%8F%89%E6%A0%91.png)
+![二叉树](https://img-blog.csdnimg.cn/20210421163913946.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NzgzODA2Mg==,size_16,color_FFFFFF,t_70#pic_center)
 
 二叉树最多有两个子节点，这种结构导致树的高度会很高，增加IO次数，**特殊情况下可能化为链表结构**，相当于全表扫描，全量磁盘IO。
 
@@ -121,7 +117,7 @@ MySQL目前有Memory引擎和NDB引擎支持Hash索引。
 
 
 
-![斜二叉树](http://resource.zqtaotao.cn/wx/21/%E6%96%9C%E4%BA%8C%E5%8F%89%E6%A0%91.png)
+![斜二叉树](https://img-blog.csdnimg.cn/2021042116395294.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NzgzODA2Mg==,size_16,color_FFFFFF,t_70#pic_center)
 
 
 
@@ -180,9 +176,11 @@ B-Tree是多路平衡搜索树，相比二叉树结构，可以极大的优化�
 
 
 
-阅读原文：[《MySQL面试小抄》索引考点一面总结](https://mp.weixin.qq.com/s/TMa6PT070inUtURl48URuQ)
+阅读原文：
 
+[《MySQL面试小抄》索引考点二面总结](https://mp.weixin.qq.com/s/2jC8AwsH8cpk8T23tN0bgg)
 
+[《MySQL面试小抄》索引考点一面总结](https://mp.weixin.qq.com/s/TMa6PT070inUtURl48URuQ)
 
 
 
@@ -192,13 +190,7 @@ B-Tree是多路平衡搜索树，相比二叉树结构，可以极大的优化�
 
 更多精彩内容，欢迎关注微信公众号：**囧么肥事** (或搜索：jiongmefeishi)
 
-
-
-
-
-
-
-
+![囧么肥事](https://img-blog.csdnimg.cn/img_convert/cb3a296f8edbcc70370d4eb569c40634.png)
 
 
 
