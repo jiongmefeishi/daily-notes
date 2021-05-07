@@ -5,9 +5,9 @@
   <meta name="author" content="微信公众号：颜家大少">
   <meta name="email" content="3056432@qq.com">
   <meta name="description" content="一个Markdown在线转换工具，让Markdown内容，不需作任何调整就能同时在微信公众号、博客园、掘金、csdn等平台正确显示当前预览的效果">
-  <title>Md2All export document</title>  
-  <style type="text/css" id="markdown_preview_css"> 
- .output_wrapper pre code{font-family: Consolas, Inconsolata, Courier, monospace; display: block !important; white-space: pre !important; word-wrap: normal !important; word-break: normal !important;  overflow: auto !important;}  
+  <title>Md2All export document</title>
+  <style type="text/css" id="markdown_preview_css">
+ .output_wrapper pre code{font-family: Consolas, Inconsolata, Courier, monospace; display: block !important; white-space: pre !important; word-wrap: normal !important; word-break: normal !important;  overflow: auto !important;}
 .output_wrapper a:hover { text-decoration: underline; color: rgb(0, 96, 100); }
 .output_wrapper figcaption { margin-top: 10px; text-align: center; color: rgb(153, 153, 153); font-size: 0.7em; }
 .output_wrapper pre code .linenum { padding-right: 20px; word-spacing: 0px; }
@@ -256,7 +256,7 @@
 .katex .cancel-pad { padding: 0px 0.2em; }
 .katex .cancel-lap { margin-left: -0.2em; margin-right: -0.2em; }
 .katex .sout { border-bottom-style: solid; border-bottom-width: 0.08em; }
-.output_wrapper pre code { display: -webkit-box !important; } 
+.output_wrapper pre code { display: -webkit-box !important; }
 .output_wrapper .hljs{color: rgb(169, 183, 198); background: rgb(40, 43, 46); display: block; overflow-x: auto; padding: 0.5em;}
 
 .output_wrapper .hljs-params{color: rgb(255, 152, 35);}
@@ -280,8 +280,8 @@
 .output_wrapper .hljs-emphasis{font-style: italic;}
 
 .output_wrapper .hljs-strong{font-weight: bold;}
- 
-.output_wrapper pre code {line-height: 18px; font-size: 14px; font-weight: normal; word-spacing: 0px; letter-spacing: 0px;} 
+
+.output_wrapper pre code {line-height: 18px; font-size: 14px; font-weight: normal; word-spacing: 0px; letter-spacing: 0px;}
 .output_wrapper{font-size: 15px; color: rgb(62, 62, 62); line-height: 1.8; word-spacing: 2px; letter-spacing: 2px; font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif; background-image: linear-gradient(90deg, rgba(50, 0, 0, 0.05) 3%, rgba(0, 0, 0, 0) 3%), linear-gradient(360deg, rgba(50, 0, 0, 0.05) 3%, rgba(0, 0, 0, 0) 3%); background-size: 20px 20px; background-position: center center;}
 
 .output_wrapper *{font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;}
@@ -387,10 +387,10 @@
 .output_wrapper .toc_item{display: block;}
 
 .output_wrapper .toc_left{margin-left: 25px;}
- 
-</style>  
+
+</style>
   <style type="text/css" id="export_setting_css">body { width: 100%; margin: 0px; padding: 0px; background: rgb(81, 154, 178); }
-#export_content { margin: 40px 20%; padding: 20px; border: 1px solid rgb(149, 155, 111); background: rgb(255, 255, 255); }</style>  
+#export_content { margin: 40px 20%; padding: 20px; border: 1px solid rgb(149, 155, 111); background: rgb(255, 255, 255); }</style>
 
 </head><body><div id="export_content"><div class="output_wrapper" id="output_wrapper_id"><h1 id="hmysql"><span>《MySQL面试小抄》索引考点二面总结</span></h1>
 <p>我是肥哥，一名不专业的面试官！</p>
@@ -484,7 +484,7 @@
   <li><span>where中对索引列使用mysql的内置函数，一定失效</span></li>
   <li><span>where中对索引列进行运算（如，+、-、*、/），一定失效</span></li>
   <li><span>类型不一致，隐式的类型转换，导致的索引失效</span></li>
-  <li><span>where语句中索引列使用了负向查询，可能会导致索引失效 负向查询包括：NOT、!=、&lt;&gt;、!&lt;、!&gt;、NOT IN、NOT LIKE等。</span></li>
+  <li><span>where语句中索引列使用了负向查询，可能会导致索引失效 负向查询包括：NOT、!=、&lt;&gt;、!&lt;、!&gt;、NOT IN、NOT LIKE等。其中!< !> 为SQLServer语法。</span></li>
   <li><span>索引字段可以为null，使用is null或is not null时，可能会导致索引失效</span></li>
   <li><span>隐式字符编码转换导致的索引失效</span></li>
   <li><span>联合索引中，where中索引列违背最左匹配原则，一定会导致索引失效</span></li>
