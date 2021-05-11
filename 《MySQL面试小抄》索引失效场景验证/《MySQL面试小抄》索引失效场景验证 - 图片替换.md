@@ -1,4 +1,6 @@
-# 索引失效场景验证
+
+
+![](https://img-blog.csdnimg.cn/img_convert/f624544138ac5e8f9d6851002393486d.png)
 
 我是肥哥，一名不专业的面试官！
 
@@ -31,9 +33,9 @@
 
 
 
-![索引失效验证1](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\索引失效验证1.png)
+![索引失效验证1](https://img-blog.csdnimg.cn/img_convert/fdaee4537f455cdee728cafbc6c9d3b0.png)
 
-![索引失效验证1](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\索引失效验证2.png)
+![索引失效验证1](https://img-blog.csdnimg.cn/img_convert/dab3e4dd86a42e6499fa054873f685e5.png)
 
 
 
@@ -82,7 +84,7 @@ CALL user_insert();
 
 好多人说where条件中使用 or ，那么索引一定失效，是否正确？
 
-![or查询](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\or查询.png)
+![or查询](https://img-blog.csdnimg.cn/img_convert/ebd5987cae7ca16b874292c659249771.png)
 
 > OR 连接的是同一个字段，相同走索引
 
@@ -90,7 +92,7 @@ CALL user_insert();
 explain select * from t_user where user_name = 'mayun10' or user_name = 'mayun1000'
 ```
 
-![or查询走索引情况](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\or查询走索引情况.png)
+![or查询走索引情况](https://img-blog.csdnimg.cn/img_convert/ebe300829092cdf115cee9b5ccb88d9c.png)
 
 > OR 连接的是两个不同字段，不同索引失效
 
@@ -98,7 +100,7 @@ explain select * from t_user where user_name = 'mayun10' or user_name = 'mayun10
 explain select * from t_user where user_name = 'mayun10' or address = '浙江杭州12'
 ```
 
-![or查询索引失效情况](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\or查询索引失效情况.png)
+![or查询索引失效情况](https://img-blog.csdnimg.cn/img_convert/d79413e9c57d7ccdc218274574e619bc.png)
 
 > 给address列增加索引
 
@@ -109,7 +111,7 @@ alter table t_user add index idx_address (address)
 > OR 连接的是两个不同字段，如果两个字段皆有索引，走索引
 >
 
-![or查询走索引情况-两边字段有索引](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\or查询走索引情况-两边字段有索引.png)
+![or查询走索引情况-两边字段有索引](https://img-blog.csdnimg.cn/img_convert/cf33f854ad45d4de6d1e351c5f6c5c1b.png)
 
 
 
@@ -139,7 +141,7 @@ select * from t_user where user_name like '%mayun100%';
 
 >  这条查询是否走索引？
 
-![like不走索引](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\like不走索引.png)
+![like不走索引](https://img-blog.csdnimg.cn/img_convert/9e8c11d5c736e09dbdce4ffca3db0a1a.png)
 
 ```
 select * from t_user where user_name like 'mayun100%';
@@ -147,7 +149,7 @@ select * from t_user where user_name like 'mayun100%';
 
 >  这条查询是否走索引？
 
-![like走索引](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\like走索引.png)
+![like走索引](https://img-blog.csdnimg.cn/img_convert/299ca6fc7324e10e593ca32135b3402b.png)
 
 **验证总结**
 
@@ -165,7 +167,7 @@ like 通配符特性是可以左右开闭匹配查询
 
 ### 三、where中对索引列使用mysql的内置函数
 
-> 建立 idx_age 索引
+> 建立 idx_age 索引，
 
 ```
 alter table t_user add index idx_age(age);
@@ -177,7 +179,7 @@ alter table t_user add index idx_age(age);
 explain select * from t_user where age = 80
 ```
 
-![内置函数验证-不使用内置函数](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\内置函数验证-不使用内置函数.png)
+![内置函数验证-不使用内置函数](https://img-blog.csdnimg.cn/img_convert/2ea0a35d5a1cddc38c950eb440d9c392.png)
 
 > 使用内置函数
 
@@ -185,7 +187,7 @@ explain select * from t_user where age = 80
 explain select * from t_user where abs(age) = 80
 ```
 
-![内置函数验证-内置函数](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\内置函数验证-内置函数.png)
+![内置函数验证-内置函数](https://img-blog.csdnimg.cn/img_convert/6e762ab24d2f654b608f28dec0a01678.png)
 
 **验证总结**
 
@@ -202,7 +204,7 @@ alter table t_user add index idx_age(age);
 explain select * from t_user where age = 80;
 ```
 
-![内置函数验证-不使用内置函数](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\内置函数验证-不使用内置函数.png)
+![内置函数验证-不使用内置函数](https://img-blog.csdnimg.cn/img_convert/2ea0a35d5a1cddc38c950eb440d9c392.png)
 
 > 索引列进行运算操作
 
@@ -210,7 +212,7 @@ explain select * from t_user where age = 80;
 explain select * from t_user where age + 5 = 80
 ```
 
-![索引运算失效](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\索引运算失效.png)
+![索引运算失效](https://img-blog.csdnimg.cn/img_convert/ba72960b6f419edba01ba8034aed74de.png)
 
 ### 五、类型不一致，隐式的类型转换，导致的索引失效
 
@@ -220,7 +222,7 @@ alter table t_user add index idx_user_name(user_name);
 explain select * from t_user where user_name = 'mayun1';
 ```
 
-![类型不一致验证之正常类型](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\类型不一致验证之正常类型.png)
+![类型不一致验证之正常类型](https://img-blog.csdnimg.cn/img_convert/d95f4dbd6f8fc8530bd014dc4053dc49.png)
 
 修改数据，再次explain
 
@@ -231,7 +233,7 @@ explain select * from t_user where user_name = 100;
 
 user_name = 100 ，因为user_name 字段定义的是varchar，索引在where进行匹配时会先隐式调用 case() 函数进行类型转换 将匹配条件变成，**user_name = '100'**
 
-![类型不一致验证之类型转换](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\类型不一致验证之类型转换.png)
+![类型不一致验证之类型转换](https://img-blog.csdnimg.cn/img_convert/c9a148971d95dd177388b1ee947b51ad.png)
 
 
 
@@ -244,47 +246,47 @@ alter table t_user add index idx_age(age);
 explain select * from t_user where age in (100, 50);
 ```
 
-![反向选择之in](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\反向选择之in.png)
+![反向选择之in](https://img-blog.csdnimg.cn/img_convert/08ddf1876ddb1cb73b407a0e5848ac7a.png)
 
 ```
 explain select * from t_user where age not in (100, 50);
 ```
 
-![反向选择之not_in](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\反向选择之not_in.png)
+![反向选择之not_in](https://img-blog.csdnimg.cn/img_convert/f7f7c224b7c7338b5e4643706c4a085a.png)
 
 ### 七、索引字段可以为null，使用is null或is not null时，可能会导致索引失效
 
 **第一种情况，表结构规定允许user_name 字段可以为null**
 
-![null可以为空](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\null可以为空.png)
+![null可以为空](https://img-blog.csdnimg.cn/img_convert/1190666537145bcc317bcb2794505dbb.png)
 
 ```
 explain select * from t_user where user_name is null;
 ```
 
-![null可以为空校验之is_null](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\null可以为空校验之is_null.png)
+![null可以为空校验之is_null](https://img-blog.csdnimg.cn/img_convert/c2d205da5711773bc0c8d7520dc9edeb.png)
 
 ```
 explain select * from t_user where user_name is not null;
 ```
 
-![null可以为空校验之is_not_null](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\null可以为空校验之is_not_null.png)
+![null可以为空校验之is_not_null](https://img-blog.csdnimg.cn/img_convert/4c04744d04e91f4d9f0395041d51ca09.png)
 
 **第二种情况，表结构规定user_name 字段不可以为null**
 
-![null不允许为null](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\null不允许为null.png)
+![null不允许为null](https://img-blog.csdnimg.cn/img_convert/0eac42d920909363b181b77a563736f8.png)
 
 ```
 explain select * from t_user where user_name is null;
 ```
 
-![null不允许为null之null](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\null不允许为null之null.png)
+![null不允许为null之null](https://img-blog.csdnimg.cn/img_convert/608cddb196a3262e6a77f62412e49625.png)
 
 ```
 explain select * from t_user where user_name is not null;
 ```
 
-![null不允许为null之is_not_null](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\null不允许为null之is_not_null.png)
+![null不允许为null之is_not_null](https://img-blog.csdnimg.cn/img_convert/fdf32f1593562196bc72d77e89eaab30.png)
 
 ### 八、隐式字符编码转换导致的索引失效
 
@@ -296,7 +298,7 @@ explain select * from t_user where user_name is not null;
 
 ### 九、联合索引中，where中索引列违背最左匹配原则，一定会导致索引失效
 
-> 创建联合做引 idx_user_name_deposit
+> 创建联合做引 idx_user_name_deposit， **遵循最左匹配原则**
 
 ```
 alter table t_user add index idx_user_name_deposit(user_name, deposit);
@@ -304,18 +306,23 @@ alter table t_user add index idx_user_name_deposit(user_name, deposit);
 explain select * from t_user where user_name like 'mayun86%'
 ```
 
-![最左匹配之a](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\最左匹配之a.png)
+![最左匹配之a](https://img-blog.csdnimg.cn/img_convert/f87dd3a7ebb7b0c47c6fca20583f9c3c.png)
 
-> 遵循最左匹配原则
+> **遵循最左匹配之 a b 类型**
 
 ```
 explain select * from t_user where user_name like 'mayun86%' and deposit = 5620.26;
-explain select * from t_user where deposit = 5620.26 and user_name like 'mayun86%';
 ```
 
-![最左匹配之ab](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\最左匹配之ab.png)
+![最左匹配之ab](https://img-blog.csdnimg.cn/img_convert/f978c19249a3965ae6631daa59619fca.png)
 
-![最左匹配之ba](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\最左匹配之ba.png)
+> **调换索引位置，测试联合索引书写规则**
+
+```
+explain select * from t_user where deposit = 5620.26 and user_name like 'mayun86%';
+```
+
+![最左匹配之ba](https://img-blog.csdnimg.cn/img_convert/e208beee12b38f82d8692a6a23fbeef7.png)
 
 >违反最左匹配原则
 
@@ -323,7 +330,7 @@ explain select * from t_user where deposit = 5620.26 and user_name like 'mayun86
 explain select * from t_user where deposit = 5620.26;
 ```
 
-![最左匹配之b](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\最左匹配之b.png)
+![最左匹配之b](https://img-blog.csdnimg.cn/img_convert/054200407d8e01a390e662a97ba96903.png)
 
 **验证总结**
 
@@ -369,13 +376,13 @@ select * from test where m='222' and a=1
 explain select * from t_user where age > 59;
 ```
 
-![优化器不走](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\优化器不走.png)
+![优化器不走](https://img-blog.csdnimg.cn/img_convert/5340bb0802595a28caebe23a55ad2b09.png)
 
 ```
 explain select * from t_user where age > 99;
 ```
 
-![优化器走](C:\Users\zhiyuan\Desktop\daily-notes\《MySQL面试小抄》索引失效场景验证\优化器走.png)
+![优化器走](https://img-blog.csdnimg.cn/img_convert/4e7608929f86e86e9938721c2be89a62.png)
 
 **验证总结**
 
@@ -386,3 +393,13 @@ MySQL查询索引失效的情况有很多，即使其他情况都规避，但是
 当数据量较少，或者需要访问行很多的时候
 
 优化器会认为走索引树来进行回表，还不如直接进行全表扫描的时候，优化器将会抛弃走索引树。
+
+
+
+
+
+随缘更新，整理不易，欢迎联系小白讨论，大神巴巴请绕路！
+
+更多精彩内容，欢迎关注微信公众号：**囧么肥事** (或搜索：jiongmefeishi)
+
+![](https://img-blog.csdnimg.cn/img_convert/cb3a296f8edbcc70370d4eb569c40634.png)
