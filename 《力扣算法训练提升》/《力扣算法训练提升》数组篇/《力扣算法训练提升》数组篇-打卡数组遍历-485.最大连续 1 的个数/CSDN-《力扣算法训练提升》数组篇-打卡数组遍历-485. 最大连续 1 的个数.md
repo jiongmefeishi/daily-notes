@@ -1,4 +1,6 @@
-### 《力扣算法训练提升》数组篇-打卡数组遍历
+![搜一搜](https://img-blog.csdnimg.cn/img_convert/f624544138ac5e8f9d6851002393486d.png)
+
+### 《力扣算法训练提升》数组篇-打卡数组遍历-485. 最大连续 1 的个数
 
 ### 数组的基本特性
 
@@ -28,7 +30,7 @@ for (int i = 0; i < arr.length; i++) {
 
 ### [485. 最大连续 1 的个数](https://leetcode-cn.com/problems/max-consecutive-ones/)
 
-![最大连续1个数]
+![最大连续1个数](https://img-blog.csdnimg.cn/img_convert/3153b523950b4f3060db034bb16f3bed.png)
 
 ### 解题思路一：计数
 
@@ -48,7 +50,7 @@ for (int i = 0; i < arr.length; i++) {
 
 **动画模拟**
 
-![[485]最大连续1的个数-标记法]
+![[485]最大连续1的个数-标记法](https://img-blog.csdnimg.cn/img_convert/904a13b2b4957a675b6dd26859e4a000.gif)
 
 **示例**
 
@@ -95,7 +97,7 @@ public static int findMaxConsecutiveOnes(int[] nums) {
 
 **动画模拟**
 
-![[485]最大连续1的个数-滑动窗口]
+![[485]最大连续1的个数-滑动窗口](https://img-blog.csdnimg.cn/img_convert/65e7d8878a441b78e82743392bf8c656.gif)
 
 **示例**
 
@@ -126,3 +128,8 @@ public static int findMaxConsecutiveOnes(int[] nums) {
 }
 ```
 
+**关注我了解更多精彩内容**
+
+**欢迎微信搜索：**囧么肥事 (或搜索：jiongmefeishi)
+
+![关注我](https://img-blog.csdnimg.cn/img_convert/cb3a296f8edbcc70370d4eb569c40634.png)
