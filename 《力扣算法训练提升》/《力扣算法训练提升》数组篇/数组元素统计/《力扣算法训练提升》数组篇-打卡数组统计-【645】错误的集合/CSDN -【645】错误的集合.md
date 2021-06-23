@@ -1,3 +1,5 @@
+![关注我](https://img-blog.csdnimg.cn/img_convert/f624544138ac5e8f9d6851002393486d.png)
+
 ### 《力扣算法训练提升》数组篇-打卡数组统计-【645】错误的集合
 
 ### 数组的基本特性
@@ -75,7 +77,7 @@ for (int i = nums.length - 1; i >= 0 ; i--) {
 
 **具体描述**
 
-![算法描述]
+![算法描述](https://img-blog.csdnimg.cn/img_convert/7cf2aaed5ca03d91db7c31d4bcffb314.png)
 
 
 
@@ -107,7 +109,7 @@ for (int i = nums.length - 1; i >= 0 ; i--) {
 
 
 
-![方法一]
+![方法一](https://img-blog.csdnimg.cn/20210623092343657.gif)
 
 **示例**
 
@@ -164,9 +166,7 @@ public static int[] findErrorNums1(int[] nums) {
 
 **动画模拟**
 
-
-
-![方法一]
+![方法二](https://img-blog.csdnimg.cn/img_convert/dce620524d2a988f1b255496e8f58b8e.gif)
 
 **示例**
 
@@ -236,4 +236,5 @@ public static int[] findErrorNums2(int[] nums) {
 
 **缺漏内容，正在努力整理中...**
 
-.
+![扫码关注](https://img-blog.csdnimg.cn/img_convert/cb3a296f8edbcc70370d4eb569c40634.png)
+
