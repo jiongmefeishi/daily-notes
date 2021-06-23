@@ -67,138 +67,127 @@ for (int i = nums.length - 1; i >= 0 ; i--) {
 
 ### [力扣【645. 错误的集合】](https://leetcode-cn.com/problems/set-mismatch/)
 
-集合 s 包含从 1 到 n 的整数。
+给定一个非空且只包含非负数的整数数组 nums，数组的度的定义是指数组里任一元素出现频数的最大值。
 
-不幸的是，因为数据错误，导致集合里面某一个数字复制了成了集合里面的另外一个数字的值，导致集合 丢失了一个数字 并且 有一个数字重复 。
-
-给定一个数组 nums 代表了集合 S 发生错误后的结果。
-
-请你找出重复出现的整数，再找到丢失的整数，将它们以数组的形式返回。
+你的任务是在 nums 中找到与 nums 拥有相同大小的度的最短连续子数组，返回其长度。
 
 **具体描述**
 
-![算法描述](https://img-blog.csdnimg.cn/img_convert/7cf2aaed5ca03d91db7c31d4bcffb314.png)
+![算法描述](C:\Users\tao\Desktop\daily-notes\《力扣算法训练提升》\《力扣算法训练提升》数组篇\数组元素统计\《力扣算法训练提升》数组篇-打卡数组统计-【697】数组的度\算法描述.png)
 
 
 
-### 解题思路一：辅助数组
+### 解题思路：哈希结构
 
-遍历原数组，利用辅助数组help[] ， 存储每个数字出现的次数。
+**数组的度：指的是数组中各元素出现次数的最大值**
 
-例如help[nums[i]]存储数字 i 出现的次数。
-
-遍历辅助数组
+例如题目中给定的：
 
 ```
-次数大于1的是重复数
+[1,2,2,3,1,4,2]
+
+1 出现 2 次， 2 出现 3 次， 3 出现 1 次， 4 出现 1 次
+
+其中元素出现最大次数为3
+
+所以数组的度为 3
 ```
 
-```
-次数等于0的是缺失数
-```
+**求：和原数组的度相同的最短连续子数组最短长度**
 
-**复杂度分析**
+那么这个连续子数组必定以这个元素开头，以这个元素结束。
 
-```
-时间复杂度：O(n)。遍历 nums 需要时间 O(n)，检查每个数字需要时间 O(n)。
+假设这个元素是 num，必然包含了原数组中的全部 num，且两端恰为 num `第一次出现位置`和`最后一次出现的位置`。
 
-空间复杂度：O(n)。数组 arr 最多需要存储 1 到 n 共 n 个数字的出现次数。
-```
-
-**动画模拟**
-
-
-
-![方法一](https://img-blog.csdnimg.cn/20210623092343657.gif)
-
-**示例**
+最短连续子数组必然形式
 
 ```
-// 辅助数组
-public static int[] findErrorNums1(int[] nums) {
-
-    // 辅助数组，数据是从 1~N，所以长度 +1
-    int[] help = new int[nums.length + 1];
-
-    // 根据nums 修改辅助数组，统计nums 元素出现次数
-    for (int num : nums) {
-        help[num]++;
-    }
-
-    // 遍历辅助数组
-    // 次数大于1的是重复数
-    // 次数等于0的是缺失数
-    int[] res = new int[2];
-    for (int i = 1; i < help.length; i++) {
-        if (help[i] > 1) {
-            res[0] = i;
-        }
-        if (help[i] == 0) {
-            res[1] = i;
-        }
-    }
-
-    return res;
-}
+[num，... ，num]
 ```
 
-### 解题思路二：修改原数组元素状态
+**主要求解内容**
 
-题目给定数组nums[] ，存储的数字都是正数，且处于 1 到 n 之间。
+```
+1、数组的度
 
-遍历 nums[] ，根据 i 找到 nums[|i|]，如果是第一次访问 nums[∣i∣]，将它**反转为负数**。
+2、元素第一次出现的位置
 
-再次遇到时，查询已经变为负数，那么这个数就是**重复数**。
+3、元素最后一次出现的位置
+```
 
-完成遍历后所有出现过的数字对应索引处的数字都是负数，只有缺失数字 j 对应的索引处仍然是正数。
+**定义三个哈希结构（哈希表）**
 
-再次遍历nums[]，找到数组中正值元素所在位置 + 1，即为**缺失数**。
+```
+countMap：数组每个元素出现次数
+
+leftIndex：记录数组元素第一次出现位置
+
+rightIndex：记录数组元素最后一次出现位置
+```
+
+第一次遍历数组，记录每个元素出现次数，每个元素`第一次出现位置`，每个元素`最后一次出现位置`，已经`数组的度`。
+
+第二次遍历哈希表
+
+
+
+计算每个`符合数组度的元素`的最短长度
+
+```
+最短长度 = 元素最后位置 - 第一次出现位置 + 1
+```
 
 
 
 **复杂度分析**
 
 ```
-时间复杂度：O(n)。遍历 nums 需要时间 O(n)，检查每个数字需要时间 O(n)。
+时间复杂度：O(n)。遍历 nums 需要时间 O(n)，需要遍历原数组和哈希表各一次，检查每个数字需要时间 O(n)。
 
-空间复杂度：O(1)。使用恒定的额外空间。
+空间复杂度：O(n)，其中 n 是原数组的长度，最坏情况下，哈希表和原数组等大。
 ```
 
 **动画模拟**
 
-![方法二](https://img-blog.csdnimg.cn/img_convert/dce620524d2a988f1b255496e8f58b8e.gif)
+![数组的度](C:\Users\tao\Desktop\daily-notes\《力扣算法训练提升》\《力扣算法训练提升》数组篇\数组元素统计\《力扣算法训练提升》数组篇-打卡数组统计-【697】数组的度\数组的度.gif)
 
 **示例**
 
 ```
-// 将第一次遇到的数变为负数
-// 再次遇到时，查询已经变为负数，那么这个数就是重复数
-public static int[] findErrorNums2(int[] nums) {
+public int findShortestSubArray(int[] nums) {
 
-    //        1 2 4 3 3 3 4
-    // a[0]  -1 2 4 3 3 3 4
-    // a[1]  -1 -2 4 3 3 3 4
-    // a[2]  -1 -2 4 -3 3 3 4
+    // 记录最短连续子数组长度
+    int min = Integer.MAX_VALUE;
+    // 记录最大数组度
+    int maxCount = 0;
 
-    int[] res = new int[2];
-    for (int num : nums) {
-        if (nums[Math.abs(num) - 1] < 0) {
-            // 重复数
-            res[0] = Math.abs(num);
-        } else {
-            // 第一次访问元素，置为0
-            nums[Math.abs(num) - 1] *= -1;
-        }
-    }
+    // 存储每个元素对应出现次数
+    Map<Integer, Integer> count = new HashMap<>();
+    // 存储每个元素首次出现位置
+    Map<Integer, Integer> leftIndex = new HashMap<>();
+    // 存储每个元素最后一次出现的位置
+    Map<Integer, Integer> rightIndex = new HashMap<>();
 
-    // 遍历数组，找到数组中正值元素所在位置，即为缺失数
+    // 第一次遍历，遍历nums[]，记录每个元素出现次数，出现位置，以及数组的度
     for (int i = 0; i < nums.length; i++) {
-        if (nums[i] > 0) {
-            res[1] = i + 1;
+        if (count.get(nums[i]) == null) {
+            count.put(nums[i], 1);
+            leftIndex.put(nums[i], i);
+        } else {
+            count.put(nums[i], count.get(nums[i]) + 1);
         }
+        rightIndex.put(nums[i], i);
+        maxCount = Math.max(maxCount, count.get(nums[i]));
     }
 
-    return res;
+    // 第二次遍历，遍历 count 根据数组的度，计算最小连续子数组长度
+    for (Integer key: count.keySet()) {
+        if (count.get(key) == maxCount) {
+            // 连续子数组长度=右边界-左边界+1
+            min = Math.min(min, rightIndex.get(key) - leftIndex.get(key) + 1);
+        }
+    }
+    return min;
 }
 ```
 
@@ -235,6 +224,8 @@ public static int[] findErrorNums2(int[] nums) {
 ```
 
 **缺漏内容，正在努力整理中...**
+
+
 
 ![扫码关注](https://img-blog.csdnimg.cn/img_convert/cb3a296f8edbcc70370d4eb569c40634.png)
 
