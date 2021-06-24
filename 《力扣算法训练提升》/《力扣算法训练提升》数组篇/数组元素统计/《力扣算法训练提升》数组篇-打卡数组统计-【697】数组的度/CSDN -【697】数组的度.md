@@ -73,7 +73,7 @@ for (int i = nums.length - 1; i >= 0 ; i--) {
 
 **具体描述**
 
-![算法描述](C:\Users\tao\Desktop\daily-notes\《力扣算法训练提升》\《力扣算法训练提升》数组篇\数组元素统计\《力扣算法训练提升》数组篇-打卡数组统计-【697】数组的度\算法描述.png)
+![算法描述](https://img-blog.csdnimg.cn/img_convert/d41f59f7e83f6ceef30aea830c7b8eaf.png)
 
 
 
@@ -149,7 +149,7 @@ rightIndex：记录数组元素最后一次出现位置
 
 **动画模拟**
 
-![数组的度](C:\Users\tao\Desktop\daily-notes\《力扣算法训练提升》\《力扣算法训练提升》数组篇\数组元素统计\《力扣算法训练提升》数组篇-打卡数组统计-【697】数组的度\数组的度.gif)
+![数组的度](https://img-blog.csdnimg.cn/img_convert/8756fafbe74d2accfcbab5579c22287d.gif)
 
 **示例**
 
