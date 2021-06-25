@@ -69,9 +69,7 @@ for (int i = nums.length - 1; i >= 0 ; i--) {
 
 **具体描述**
 
-![算法描述]
-
-
+![算法描述](https://img-blog.csdnimg.cn/img_convert/b91117d713fe889adadeb412876d70e0.png)
 
 
 
@@ -103,7 +101,7 @@ for (int i = nums.length - 1; i >= 0 ; i--) {
 
 **动画模拟**
 
-![【448】找到所有数组中消失的数字]
+![【448】找到所有数组中消失的数字](https://img-blog.csdnimg.cn/img_convert/ba1b53bcb133a300fb701ac1a5c50a0e.gif)
 
 **示例**
 
@@ -163,3 +161,4 @@ public static List<Integer> findDisappearedNumbers(int[] nums) {
 
 **缺漏内容，正在努力整理中...**
 
+ 
