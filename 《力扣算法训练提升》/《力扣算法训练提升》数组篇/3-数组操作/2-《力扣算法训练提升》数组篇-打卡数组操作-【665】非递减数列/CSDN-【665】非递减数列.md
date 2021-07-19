@@ -1,6 +1,6 @@
 ### 《力扣算法训练提升》图解数组篇-打卡数组统计-【665】非递减数列
 
-![打卡]
+![打卡](https://img-blog.csdnimg.cn/img_convert/02bf8c9dc8c06bad0fa95906358bd646.png)
 
 ### 数组的基本特性
 
@@ -22,11 +22,11 @@
 
 **具体描述**
 
-![算法描述]
+![算法描述](https://img-blog.csdnimg.cn/img_convert/407ce117dc6fa356dbbce84413d376af.png)
 
 ### 解题讨论
 
-![算法讨论]
+![算法讨论](https://img-blog.csdnimg.cn/img_convert/42a40bd4a1c77d8d6f0d31e27e48bb6d.png)
 
 
 
@@ -34,27 +34,27 @@
 
 **对于数组构造峰谷折线图**
 
-![示例1]
+![示例1](https://img-blog.csdnimg.cn/img_convert/9b86e904e951c9ca129e771012cdff44.png)
 
 **4 1 6 形成低谷，其中 1 为谷底**
 
-![示例2]
+![示例2](https://img-blog.csdnimg.cn/img_convert/eb1f10b213c40a06bb3ed96b03c73bc1.png)
 
 **两端谷峰分别为 4， 6**
 
-![示例3]
+![示例3](https://img-blog.csdnimg.cn/img_convert/f29d768839996e7e6ea94bc4d1a6e7fc.png)
 
 **填平谷底可选取值范围，两端峰值内闭合区域，为了方便，选取两端峰值作为可选填坑值**
 
-![示例4]
+![示例4](https://img-blog.csdnimg.cn/img_convert/0036028c19c1fb593ae55de08526b137.png)
 
 **选取左端峰值作为填坑值**
 
-![示例5]
+![示例5](https://img-blog.csdnimg.cn/img_convert/65a2d2931d8169689d5826f82051cd9c.png)
 
 **选取右端峰值作为填坑值**
 
-![示例6]
+![示例6](https://img-blog.csdnimg.cn/img_convert/89e27af05e1459657f34bd606893aa94.png)
 
 
 
@@ -77,7 +77,7 @@ a[i] >= a[R] ? 更新 a[i] = a[R]+1, R++
 
 ### 动画模拟
 
-![动画模拟]
+![动画模拟](https://img-blog.csdnimg.cn/img_convert/bdc2abcf2f9cc0cc67a69ef645f08b4b.gif)
 
 **示例一：遍历数组，遇到低谷区域，尝试取两端峰值填平低谷**
 
@@ -187,7 +187,7 @@ public boolean checkPossibility(int[] nums) {
 空间复杂度：O(1)。需要常量级额外空间。
 ```
 
-![勇敢牛牛]
+![勇敢牛牛](https://img-blog.csdnimg.cn/img_convert/df27b359ef7567c4992267f0c2e002a3.png)
 
 实际上，读者可以发现，这里我分别遍历了两次数组，分别是上坡填坑和下坡填坑。
 
@@ -237,7 +237,7 @@ public boolean checkPossibility(int[] nums) {
 }
 ```
 
-![啦啦啦]
+![啦啦啦](https://img-blog.csdnimg.cn/img_convert/9282ea5c372a0ebb1178f49bdec84e40.gif)
 
 ### 短话长说
 
@@ -247,7 +247,7 @@ public boolean checkPossibility(int[] nums) {
 
 按照力扣题目类别结构化排序刷题，从低阶到高阶，图解算法(更新中...)，有兴趣的童鞋，欢迎一起从小白开始零基础刷力扣，共同进步！
 
-![短话长说]
+![短话长说](https://img-blog.csdnimg.cn/img_convert/6040c8afe2a1300128dc451ffc78e779.gif)
 
 回复：678，获取已分类好的部分刷题顺序，后续内容会持续更新，感兴趣的小伙伴自由拿取！
 
@@ -273,7 +273,7 @@ public boolean checkPossibility(int[] nums) {
 
 **缺漏内容，正在努力整理中...**
 
-
+![关注我](https://img-blog.csdnimg.cn/img_convert/cb3a296f8edbcc70370d4eb569c40634.png)
 
 
 

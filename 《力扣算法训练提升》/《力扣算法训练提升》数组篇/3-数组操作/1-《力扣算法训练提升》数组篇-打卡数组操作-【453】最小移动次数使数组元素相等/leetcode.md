@@ -1,5 +1,9 @@
 ### 《力扣算法训练提升》图解数组篇-打卡数组统计-【435】最小移动次数使数组元素相等
 
+### 今天是[@囧么肥事](https://leetcode-cn.com/u/jiongmefeishi/)短话长说的第1天，没错最不像题解的题解
+
+### 今日打卡题目[41. 缺失的第一个正数](https://leetcode-cn.com/problems/first-missing-positive/)
+
 ![打卡](https://img-blog.csdnimg.cn/img_convert/508a11830f319d6d40c4d0942745024d.gif)
 
 ### 囧么肥事今日打卡题目
@@ -124,5 +128,4 @@ public static int minMoves(int[] nums) {
 以上分类原谅我有个修仙梦...
 ```
 
-**缺漏内容，正在努力整理中...喜欢的小伙伴随手点个赞呗**
-
+**缺漏内容，正在努力整理中...喜欢的小伙伴随手一个赞呗**
