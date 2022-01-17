@@ -1,4 +1,4 @@
-### 《策略模式替换ifelse》
+### 《设计模式实践》策略和工厂模式替代业务场景中复杂的ifelse
 
 ![0](https://mmbiz.qpic.cn/mmbiz_png/2GfhQ2H7oTEAjuuGFQ7uyWswjNib3Tf49vcibeQS8MNosqf9JH5NoxyaDaYuZeMZKPiaD9Ks1JWgWk9aHwadycZlA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
