@@ -16,9 +16,10 @@
 
 ```
 面试官考点之什么情况下会索引失效？
+面试官考点之简单说说你工作中遇到的索引失效场景？
 ```
 
-本期验证以下索引失效的常见场景
+以下索引失效的常见场景
 
 >1、like通配符，左侧开放情况下，全表扫描
 >2、or条件筛选，可能会导致索引失效
@@ -392,14 +393,31 @@ MySQL查询索引失效的情况有很多，即使其他情况都规避，但是
 
 当数据量较少，或者需要访问行很多的时候
 
-优化器会认为走索引树来进行回表，还不如直接进行全表扫描的时候，优化器将会抛弃走索引树。
+优化器会认为**走索引树来进行回表**，还不如直接进行全表扫描的时候，优化器将会**抛弃**走索引树。
 
 
 
 
 
-随缘更新，整理不易，欢迎联系小白讨论，大神巴巴请绕路！
+----
+
+
+
+**推荐MySQL相关休闲阅读**：
+
+第一段，索引面试题推荐阅读一：[【来自面试官一面MySQL索引的连续灵魂拷问】](https://mp.weixin.qq.com/s?__biz=Mzg3NjU0NDE4NQ==&mid=2247483708&idx=1&sn=2bba08c79535caad22571efa8f698aa6&chksm=cf31e8eaf84661fc013c8fffd5580f5793c157c5639afdf1a3daa2381be4f6a3347690c770b7#rd)
+
+第二段，索引面试题推荐阅读二：[【来自面试官二面MySQL索引的连续灵魂拷问】](https://mp.weixin.qq.com/s?__biz=Mzg3NjU0NDE4NQ==&mid=2247483727&idx=1&sn=de099056011f1da943a0f42843e0c75b&chksm=cf31e899f846618f8d8135ace8b3ca3987a255295b603c463eecd5321806a51cc45e5815ece3#rd)
+
+第三段，索引失效场景面试题推荐阅读：[【面试官：说说你遇到的MySQL索引失效场景吧，你是如何解决的？】](https://mp.weixin.qq.com/s?__biz=Mzg3NjU0NDE4NQ==&mid=2247483801&idx=1&sn=14f7f9e7023abf045c3322a00815f79b&chksm=cf31e84ff8466159498f5db66ed3c028587caabdeabe57aaa5f4612c00ea236e6c6e5bf77a66#rd)
+
+第四段，查询缓存面试题推荐阅读：[【面试官：什么场景下会导致MySQL缓存失效？生产环境到底要不要开启MySQL缓存？】](https://mp.weixin.qq.com/s?__biz=Mzg3NjU0NDE4NQ==&mid=2247483836&idx=1&sn=24d090fc782b3855ab4c8c20d139892e&chksm=cf31e86af846617cbee4c7e2deb62fc18fe6e5099e2c20f7cd029a1dcbf9fb4646cfb02a4474#rd)
+
+第五段，待更新？推荐休闲阅读：[【囧么肥事】](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NjU0NDE4NQ==&action=getalbum&album_id=2218140423993212933#wechat_redirect)
+
+
 
 更多精彩内容，欢迎关注微信公众号：**囧么肥事** (或搜索：jiongmefeishi)
 
-![](https://img-blog.csdnimg.cn/img_convert/cb3a296f8edbcc70370d4eb569c40634.png)
+![囧么肥事](https://img-blog.csdnimg.cn/img_convert/cb3a296f8edbcc70370d4eb569c40634.png)
+
