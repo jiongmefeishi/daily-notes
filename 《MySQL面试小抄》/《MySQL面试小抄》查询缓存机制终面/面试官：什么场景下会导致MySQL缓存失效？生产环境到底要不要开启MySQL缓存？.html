@@ -1,0 +1,503 @@
+﻿<!DOCTYPE html>
+<html>
+<head>  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=0">
+  <meta name="author" content="微信公众号：颜家大少">
+  <meta name="email" content="3056432@qq.com">
+  <meta name="description" content="一个Markdown在线转换工具，让Markdown内容，不需作任何调整就能同时在微信公众号、博客园、掘金、csdn等平台正确显示当前预览的效果">
+  <title>Md2All export document</title>  
+  <style type="text/css" id="markdown_preview_css"> 
+ .output_wrapper pre code{font-family: Consolas, Inconsolata, Courier, monospace; display: block !important; white-space: pre !important; word-wrap: normal !important; word-break: normal !important;  overflow: auto !important;}  
+.output_wrapper a:hover { text-decoration: underline; color: rgb(0, 96, 100); }
+.output_wrapper figcaption { margin-top: 10px; text-align: center; color: rgb(153, 153, 153); font-size: 0.7em; }
+.output_wrapper pre code .linenum { padding-right: 20px; word-spacing: 0px; }
+.task-list-list { list-style-type: none; }
+.task-list-list.checked { color: rgb(62, 62, 62); }
+.task-list-list.uncheck { color: rgb(191, 193, 191); }
+.task-list-list .icon_uncheck, .task-list-list .icon_check { display: inline-block; vertical-align: middle; margin-right: 10px; }
+.task-list-list .icon_check::before { content: "√"; border: 2px solid rgb(62, 62, 62); color: red; }
+.task-list-list .icon_uncheck::before { content: "x"; border: 2px solid rgb(191, 193, 191); color: rgb(191, 193, 191); }
+.task-list-list .icon_check::before, .task-list-list .icon_uncheck::before { padding: 2px 8px 2px 5px; border-radius: 5px; }
+@font-face { font-family: KaTeX_AMS; src: url("fonts/KaTeX_AMS-Regular.woff2") format("woff2"), url("fonts/KaTeX_AMS-Regular.woff") format("woff"), url("fonts/KaTeX_AMS-Regular.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+@font-face { font-family: KaTeX_Caligraphic; src: url("fonts/KaTeX_Caligraphic-Bold.woff2") format("woff2"), url("fonts/KaTeX_Caligraphic-Bold.woff") format("woff"), url("fonts/KaTeX_Caligraphic-Bold.ttf") format("truetype"); font-weight: bold; font-style: normal; }
+@font-face { font-family: KaTeX_Caligraphic; src: url("fonts/KaTeX_Caligraphic-Regular.woff2") format("woff2"), url("fonts/KaTeX_Caligraphic-Regular.woff") format("woff"), url("fonts/KaTeX_Caligraphic-Regular.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+@font-face { font-family: KaTeX_Fraktur; src: url("fonts/KaTeX_Fraktur-Bold.woff2") format("woff2"), url("fonts/KaTeX_Fraktur-Bold.woff") format("woff"), url("fonts/KaTeX_Fraktur-Bold.ttf") format("truetype"); font-weight: bold; font-style: normal; }
+@font-face { font-family: KaTeX_Fraktur; src: url("fonts/KaTeX_Fraktur-Regular.woff2") format("woff2"), url("fonts/KaTeX_Fraktur-Regular.woff") format("woff"), url("fonts/KaTeX_Fraktur-Regular.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+@font-face { font-family: KaTeX_Main; src: url("fonts/KaTeX_Main-Bold.woff2") format("woff2"), url("fonts/KaTeX_Main-Bold.woff") format("woff"), url("fonts/KaTeX_Main-Bold.ttf") format("truetype"); font-weight: bold; font-style: normal; }
+@font-face { font-family: KaTeX_Main; src: url("fonts/KaTeX_Main-BoldItalic.woff2") format("woff2"), url("fonts/KaTeX_Main-BoldItalic.woff") format("woff"), url("fonts/KaTeX_Main-BoldItalic.ttf") format("truetype"); font-weight: bold; font-style: italic; }
+@font-face { font-family: KaTeX_Main; src: url("fonts/KaTeX_Main-Italic.woff2") format("woff2"), url("fonts/KaTeX_Main-Italic.woff") format("woff"), url("fonts/KaTeX_Main-Italic.ttf") format("truetype"); font-weight: normal; font-style: italic; }
+@font-face { font-family: KaTeX_Main; src: url("fonts/KaTeX_Main-Regular.woff2") format("woff2"), url("fonts/KaTeX_Main-Regular.woff") format("woff"), url("fonts/KaTeX_Main-Regular.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+@font-face { font-family: KaTeX_Math; src: url("fonts/KaTeX_Math-BoldItalic.woff2") format("woff2"), url("fonts/KaTeX_Math-BoldItalic.woff") format("woff"), url("fonts/KaTeX_Math-BoldItalic.ttf") format("truetype"); font-weight: bold; font-style: italic; }
+@font-face { font-family: KaTeX_Math; src: url("fonts/KaTeX_Math-Italic.woff2") format("woff2"), url("fonts/KaTeX_Math-Italic.woff") format("woff"), url("fonts/KaTeX_Math-Italic.ttf") format("truetype"); font-weight: normal; font-style: italic; }
+@font-face { font-family: KaTeX_SansSerif; src: url("fonts/KaTeX_SansSerif-Bold.woff2") format("woff2"), url("fonts/KaTeX_SansSerif-Bold.woff") format("woff"), url("fonts/KaTeX_SansSerif-Bold.ttf") format("truetype"); font-weight: bold; font-style: normal; }
+@font-face { font-family: KaTeX_SansSerif; src: url("fonts/KaTeX_SansSerif-Italic.woff2") format("woff2"), url("fonts/KaTeX_SansSerif-Italic.woff") format("woff"), url("fonts/KaTeX_SansSerif-Italic.ttf") format("truetype"); font-weight: normal; font-style: italic; }
+@font-face { font-family: KaTeX_SansSerif; src: url("fonts/KaTeX_SansSerif-Regular.woff2") format("woff2"), url("fonts/KaTeX_SansSerif-Regular.woff") format("woff"), url("fonts/KaTeX_SansSerif-Regular.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+@font-face { font-family: KaTeX_Script; src: url("fonts/KaTeX_Script-Regular.woff2") format("woff2"), url("fonts/KaTeX_Script-Regular.woff") format("woff"), url("fonts/KaTeX_Script-Regular.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+@font-face { font-family: KaTeX_Size1; src: url("fonts/KaTeX_Size1-Regular.woff2") format("woff2"), url("fonts/KaTeX_Size1-Regular.woff") format("woff"), url("fonts/KaTeX_Size1-Regular.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+@font-face { font-family: KaTeX_Size2; src: url("fonts/KaTeX_Size2-Regular.woff2") format("woff2"), url("fonts/KaTeX_Size2-Regular.woff") format("woff"), url("fonts/KaTeX_Size2-Regular.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+@font-face { font-family: KaTeX_Size3; src: url("fonts/KaTeX_Size3-Regular.woff2") format("woff2"), url("fonts/KaTeX_Size3-Regular.woff") format("woff"), url("fonts/KaTeX_Size3-Regular.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+@font-face { font-family: KaTeX_Size4; src: url("fonts/KaTeX_Size4-Regular.woff2") format("woff2"), url("fonts/KaTeX_Size4-Regular.woff") format("woff"), url("fonts/KaTeX_Size4-Regular.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+@font-face { font-family: KaTeX_Typewriter; src: url("fonts/KaTeX_Typewriter-Regular.woff2") format("woff2"), url("fonts/KaTeX_Typewriter-Regular.woff") format("woff"), url("fonts/KaTeX_Typewriter-Regular.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+@media screen {
+  .katex .mtable .vertical-separator { min-width: 1px; }
+  .katex .mfrac .frac-line, .katex .overline .overline-line, .katex .underline .underline-line, .katex .hline, .katex .hdashline, .katex .rule { min-height: 1px; }
+}
+.katex-display { display: block; margin: 1em 0px; text-align: center; }
+.katex-display > .katex { display: block; text-align: center; white-space: nowrap; }
+.katex-display > .katex > .katex-html { display: block; }
+.katex-display > .katex > .katex-html > .tag { position: absolute; right: 0px; }
+.katex { font: 1.21em / 1.2 KaTeX_Main, "Times New Roman", serif; text-indent: 0px; text-rendering: auto; }
+.katex * { }
+.katex .katex-mathml { position: absolute; clip: rect(1px, 1px, 1px, 1px); padding: 0px; border: 0px; height: 1px; width: 1px; overflow: hidden; }
+.katex .katex-html { }
+.katex .katex-html > .newline { display: block; }
+.katex .base { position: relative; display: inline-block; white-space: nowrap; width: min-content; }
+.katex .strut { display: inline-block; }
+.katex .textbf { font-weight: bold; }
+.katex .textit { font-style: italic; }
+.katex .textrm { font-family: KaTeX_Main; }
+.katex .textsf { font-family: KaTeX_SansSerif; }
+.katex .texttt { font-family: KaTeX_Typewriter; }
+.katex .mathit { font-family: KaTeX_Math; font-style: italic; }
+.katex .mathrm { font-style: normal; }
+.katex .mathbf { font-family: KaTeX_Main; font-weight: bold; }
+.katex .boldsymbol { font-family: KaTeX_Math; font-weight: bold; font-style: italic; }
+.katex .amsrm { font-family: KaTeX_AMS; }
+.katex .mathbb, .katex .textbb { font-family: KaTeX_AMS; }
+.katex .mathcal { font-family: KaTeX_Caligraphic; }
+.katex .mathfrak, .katex .textfrak { font-family: KaTeX_Fraktur; }
+.katex .mathtt { font-family: KaTeX_Typewriter; }
+.katex .mathscr, .katex .textscr { font-family: KaTeX_Script; }
+.katex .mathsf, .katex .textsf { font-family: KaTeX_SansSerif; }
+.katex .mainit { font-family: KaTeX_Main; font-style: italic; }
+.katex .mainrm { font-family: KaTeX_Main; font-style: normal; }
+.katex .vlist-t { display: inline-table; table-layout: fixed; }
+.katex .vlist-r { display: table-row; }
+.katex .vlist { display: table-cell; vertical-align: bottom; position: relative; }
+.katex .vlist > span { display: block; height: 0px; position: relative; }
+.katex .vlist > span > span { display: inline-block; }
+.katex .vlist > span > .pstrut { overflow: hidden; width: 0px; }
+.katex .vlist-t2 { margin-right: -2px; }
+.katex .vlist-s { display: table-cell; vertical-align: bottom; font-size: 1px; width: 2px; min-width: 2px; }
+.katex .msupsub { text-align: left; }
+.katex .mfrac > span > span { text-align: center; }
+.katex .mfrac .frac-line { display: inline-block; width: 100%; border-bottom-style: solid; }
+.katex .mspace { display: inline-block; }
+.katex .llap, .katex .rlap, .katex .clap { width: 0px; position: relative; }
+.katex .llap > .inner, .katex .rlap > .inner, .katex .clap > .inner { position: absolute; }
+.katex .llap > .fix, .katex .rlap > .fix, .katex .clap > .fix { display: inline-block; }
+.katex .llap > .inner { right: 0px; }
+.katex .rlap > .inner, .katex .clap > .inner { left: 0px; }
+.katex .clap > .inner > span { margin-left: -50%; margin-right: 50%; }
+.katex .rule { display: inline-block; border: 0px solid; position: relative; }
+.katex .overline .overline-line, .katex .underline .underline-line, .katex .hline { display: inline-block; width: 100%; border-bottom-style: solid; }
+.katex .hdashline { display: inline-block; width: 100%; border-bottom-style: dashed; }
+.katex .sqrt > .root { margin-left: 0.277778em; margin-right: -0.555556em; }
+.katex .sizing, .katex .fontsize-ensurer { display: inline-block; }
+.katex .sizing.reset-size1.size1, .katex .fontsize-ensurer.reset-size1.size1 { font-size: 1em; }
+.katex .sizing.reset-size1.size2, .katex .fontsize-ensurer.reset-size1.size2 { font-size: 1.2em; }
+.katex .sizing.reset-size1.size3, .katex .fontsize-ensurer.reset-size1.size3 { font-size: 1.4em; }
+.katex .sizing.reset-size1.size4, .katex .fontsize-ensurer.reset-size1.size4 { font-size: 1.6em; }
+.katex .sizing.reset-size1.size5, .katex .fontsize-ensurer.reset-size1.size5 { font-size: 1.8em; }
+.katex .sizing.reset-size1.size6, .katex .fontsize-ensurer.reset-size1.size6 { font-size: 2em; }
+.katex .sizing.reset-size1.size7, .katex .fontsize-ensurer.reset-size1.size7 { font-size: 2.4em; }
+.katex .sizing.reset-size1.size8, .katex .fontsize-ensurer.reset-size1.size8 { font-size: 2.88em; }
+.katex .sizing.reset-size1.size9, .katex .fontsize-ensurer.reset-size1.size9 { font-size: 3.456em; }
+.katex .sizing.reset-size1.size10, .katex .fontsize-ensurer.reset-size1.size10 { font-size: 4.148em; }
+.katex .sizing.reset-size1.size11, .katex .fontsize-ensurer.reset-size1.size11 { font-size: 4.976em; }
+.katex .sizing.reset-size2.size1, .katex .fontsize-ensurer.reset-size2.size1 { font-size: 0.833333em; }
+.katex .sizing.reset-size2.size2, .katex .fontsize-ensurer.reset-size2.size2 { font-size: 1em; }
+.katex .sizing.reset-size2.size3, .katex .fontsize-ensurer.reset-size2.size3 { font-size: 1.16667em; }
+.katex .sizing.reset-size2.size4, .katex .fontsize-ensurer.reset-size2.size4 { font-size: 1.33333em; }
+.katex .sizing.reset-size2.size5, .katex .fontsize-ensurer.reset-size2.size5 { font-size: 1.5em; }
+.katex .sizing.reset-size2.size6, .katex .fontsize-ensurer.reset-size2.size6 { font-size: 1.66667em; }
+.katex .sizing.reset-size2.size7, .katex .fontsize-ensurer.reset-size2.size7 { font-size: 2em; }
+.katex .sizing.reset-size2.size8, .katex .fontsize-ensurer.reset-size2.size8 { font-size: 2.4em; }
+.katex .sizing.reset-size2.size9, .katex .fontsize-ensurer.reset-size2.size9 { font-size: 2.88em; }
+.katex .sizing.reset-size2.size10, .katex .fontsize-ensurer.reset-size2.size10 { font-size: 3.45667em; }
+.katex .sizing.reset-size2.size11, .katex .fontsize-ensurer.reset-size2.size11 { font-size: 4.14667em; }
+.katex .sizing.reset-size3.size1, .katex .fontsize-ensurer.reset-size3.size1 { font-size: 0.714286em; }
+.katex .sizing.reset-size3.size2, .katex .fontsize-ensurer.reset-size3.size2 { font-size: 0.857143em; }
+.katex .sizing.reset-size3.size3, .katex .fontsize-ensurer.reset-size3.size3 { font-size: 1em; }
+.katex .sizing.reset-size3.size4, .katex .fontsize-ensurer.reset-size3.size4 { font-size: 1.14286em; }
+.katex .sizing.reset-size3.size5, .katex .fontsize-ensurer.reset-size3.size5 { font-size: 1.28571em; }
+.katex .sizing.reset-size3.size6, .katex .fontsize-ensurer.reset-size3.size6 { font-size: 1.42857em; }
+.katex .sizing.reset-size3.size7, .katex .fontsize-ensurer.reset-size3.size7 { font-size: 1.71429em; }
+.katex .sizing.reset-size3.size8, .katex .fontsize-ensurer.reset-size3.size8 { font-size: 2.05714em; }
+.katex .sizing.reset-size3.size9, .katex .fontsize-ensurer.reset-size3.size9 { font-size: 2.46857em; }
+.katex .sizing.reset-size3.size10, .katex .fontsize-ensurer.reset-size3.size10 { font-size: 2.96286em; }
+.katex .sizing.reset-size3.size11, .katex .fontsize-ensurer.reset-size3.size11 { font-size: 3.55429em; }
+.katex .sizing.reset-size4.size1, .katex .fontsize-ensurer.reset-size4.size1 { font-size: 0.625em; }
+.katex .sizing.reset-size4.size2, .katex .fontsize-ensurer.reset-size4.size2 { font-size: 0.75em; }
+.katex .sizing.reset-size4.size3, .katex .fontsize-ensurer.reset-size4.size3 { font-size: 0.875em; }
+.katex .sizing.reset-size4.size4, .katex .fontsize-ensurer.reset-size4.size4 { font-size: 1em; }
+.katex .sizing.reset-size4.size5, .katex .fontsize-ensurer.reset-size4.size5 { font-size: 1.125em; }
+.katex .sizing.reset-size4.size6, .katex .fontsize-ensurer.reset-size4.size6 { font-size: 1.25em; }
+.katex .sizing.reset-size4.size7, .katex .fontsize-ensurer.reset-size4.size7 { font-size: 1.5em; }
+.katex .sizing.reset-size4.size8, .katex .fontsize-ensurer.reset-size4.size8 { font-size: 1.8em; }
+.katex .sizing.reset-size4.size9, .katex .fontsize-ensurer.reset-size4.size9 { font-size: 2.16em; }
+.katex .sizing.reset-size4.size10, .katex .fontsize-ensurer.reset-size4.size10 { font-size: 2.5925em; }
+.katex .sizing.reset-size4.size11, .katex .fontsize-ensurer.reset-size4.size11 { font-size: 3.11em; }
+.katex .sizing.reset-size5.size1, .katex .fontsize-ensurer.reset-size5.size1 { font-size: 0.555556em; }
+.katex .sizing.reset-size5.size2, .katex .fontsize-ensurer.reset-size5.size2 { font-size: 0.666667em; }
+.katex .sizing.reset-size5.size3, .katex .fontsize-ensurer.reset-size5.size3 { font-size: 0.777778em; }
+.katex .sizing.reset-size5.size4, .katex .fontsize-ensurer.reset-size5.size4 { font-size: 0.888889em; }
+.katex .sizing.reset-size5.size5, .katex .fontsize-ensurer.reset-size5.size5 { font-size: 1em; }
+.katex .sizing.reset-size5.size6, .katex .fontsize-ensurer.reset-size5.size6 { font-size: 1.11111em; }
+.katex .sizing.reset-size5.size7, .katex .fontsize-ensurer.reset-size5.size7 { font-size: 1.33333em; }
+.katex .sizing.reset-size5.size8, .katex .fontsize-ensurer.reset-size5.size8 { font-size: 1.6em; }
+.katex .sizing.reset-size5.size9, .katex .fontsize-ensurer.reset-size5.size9 { font-size: 1.92em; }
+.katex .sizing.reset-size5.size10, .katex .fontsize-ensurer.reset-size5.size10 { font-size: 2.30444em; }
+.katex .sizing.reset-size5.size11, .katex .fontsize-ensurer.reset-size5.size11 { font-size: 2.76444em; }
+.katex .sizing.reset-size6.size1, .katex .fontsize-ensurer.reset-size6.size1 { font-size: 0.5em; }
+.katex .sizing.reset-size6.size2, .katex .fontsize-ensurer.reset-size6.size2 { font-size: 0.6em; }
+.katex .sizing.reset-size6.size3, .katex .fontsize-ensurer.reset-size6.size3 { font-size: 0.7em; }
+.katex .sizing.reset-size6.size4, .katex .fontsize-ensurer.reset-size6.size4 { font-size: 0.8em; }
+.katex .sizing.reset-size6.size5, .katex .fontsize-ensurer.reset-size6.size5 { font-size: 0.9em; }
+.katex .sizing.reset-size6.size6, .katex .fontsize-ensurer.reset-size6.size6 { font-size: 1em; }
+.katex .sizing.reset-size6.size7, .katex .fontsize-ensurer.reset-size6.size7 { font-size: 1.2em; }
+.katex .sizing.reset-size6.size8, .katex .fontsize-ensurer.reset-size6.size8 { font-size: 1.44em; }
+.katex .sizing.reset-size6.size9, .katex .fontsize-ensurer.reset-size6.size9 { font-size: 1.728em; }
+.katex .sizing.reset-size6.size10, .katex .fontsize-ensurer.reset-size6.size10 { font-size: 2.074em; }
+.katex .sizing.reset-size6.size11, .katex .fontsize-ensurer.reset-size6.size11 { font-size: 2.488em; }
+.katex .sizing.reset-size7.size1, .katex .fontsize-ensurer.reset-size7.size1 { font-size: 0.416667em; }
+.katex .sizing.reset-size7.size2, .katex .fontsize-ensurer.reset-size7.size2 { font-size: 0.5em; }
+.katex .sizing.reset-size7.size3, .katex .fontsize-ensurer.reset-size7.size3 { font-size: 0.583333em; }
+.katex .sizing.reset-size7.size4, .katex .fontsize-ensurer.reset-size7.size4 { font-size: 0.666667em; }
+.katex .sizing.reset-size7.size5, .katex .fontsize-ensurer.reset-size7.size5 { font-size: 0.75em; }
+.katex .sizing.reset-size7.size6, .katex .fontsize-ensurer.reset-size7.size6 { font-size: 0.833333em; }
+.katex .sizing.reset-size7.size7, .katex .fontsize-ensurer.reset-size7.size7 { font-size: 1em; }
+.katex .sizing.reset-size7.size8, .katex .fontsize-ensurer.reset-size7.size8 { font-size: 1.2em; }
+.katex .sizing.reset-size7.size9, .katex .fontsize-ensurer.reset-size7.size9 { font-size: 1.44em; }
+.katex .sizing.reset-size7.size10, .katex .fontsize-ensurer.reset-size7.size10 { font-size: 1.72833em; }
+.katex .sizing.reset-size7.size11, .katex .fontsize-ensurer.reset-size7.size11 { font-size: 2.07333em; }
+.katex .sizing.reset-size8.size1, .katex .fontsize-ensurer.reset-size8.size1 { font-size: 0.347222em; }
+.katex .sizing.reset-size8.size2, .katex .fontsize-ensurer.reset-size8.size2 { font-size: 0.416667em; }
+.katex .sizing.reset-size8.size3, .katex .fontsize-ensurer.reset-size8.size3 { font-size: 0.486111em; }
+.katex .sizing.reset-size8.size4, .katex .fontsize-ensurer.reset-size8.size4 { font-size: 0.555556em; }
+.katex .sizing.reset-size8.size5, .katex .fontsize-ensurer.reset-size8.size5 { font-size: 0.625em; }
+.katex .sizing.reset-size8.size6, .katex .fontsize-ensurer.reset-size8.size6 { font-size: 0.694444em; }
+.katex .sizing.reset-size8.size7, .katex .fontsize-ensurer.reset-size8.size7 { font-size: 0.833333em; }
+.katex .sizing.reset-size8.size8, .katex .fontsize-ensurer.reset-size8.size8 { font-size: 1em; }
+.katex .sizing.reset-size8.size9, .katex .fontsize-ensurer.reset-size8.size9 { font-size: 1.2em; }
+.katex .sizing.reset-size8.size10, .katex .fontsize-ensurer.reset-size8.size10 { font-size: 1.44028em; }
+.katex .sizing.reset-size8.size11, .katex .fontsize-ensurer.reset-size8.size11 { font-size: 1.72778em; }
+.katex .sizing.reset-size9.size1, .katex .fontsize-ensurer.reset-size9.size1 { font-size: 0.289352em; }
+.katex .sizing.reset-size9.size2, .katex .fontsize-ensurer.reset-size9.size2 { font-size: 0.347222em; }
+.katex .sizing.reset-size9.size3, .katex .fontsize-ensurer.reset-size9.size3 { font-size: 0.405093em; }
+.katex .sizing.reset-size9.size4, .katex .fontsize-ensurer.reset-size9.size4 { font-size: 0.462963em; }
+.katex .sizing.reset-size9.size5, .katex .fontsize-ensurer.reset-size9.size5 { font-size: 0.520833em; }
+.katex .sizing.reset-size9.size6, .katex .fontsize-ensurer.reset-size9.size6 { font-size: 0.578704em; }
+.katex .sizing.reset-size9.size7, .katex .fontsize-ensurer.reset-size9.size7 { font-size: 0.694444em; }
+.katex .sizing.reset-size9.size8, .katex .fontsize-ensurer.reset-size9.size8 { font-size: 0.833333em; }
+.katex .sizing.reset-size9.size9, .katex .fontsize-ensurer.reset-size9.size9 { font-size: 1em; }
+.katex .sizing.reset-size9.size10, .katex .fontsize-ensurer.reset-size9.size10 { font-size: 1.20023em; }
+.katex .sizing.reset-size9.size11, .katex .fontsize-ensurer.reset-size9.size11 { font-size: 1.43981em; }
+.katex .sizing.reset-size10.size1, .katex .fontsize-ensurer.reset-size10.size1 { font-size: 0.24108em; }
+.katex .sizing.reset-size10.size2, .katex .fontsize-ensurer.reset-size10.size2 { font-size: 0.289296em; }
+.katex .sizing.reset-size10.size3, .katex .fontsize-ensurer.reset-size10.size3 { font-size: 0.337512em; }
+.katex .sizing.reset-size10.size4, .katex .fontsize-ensurer.reset-size10.size4 { font-size: 0.385728em; }
+.katex .sizing.reset-size10.size5, .katex .fontsize-ensurer.reset-size10.size5 { font-size: 0.433944em; }
+.katex .sizing.reset-size10.size6, .katex .fontsize-ensurer.reset-size10.size6 { font-size: 0.48216em; }
+.katex .sizing.reset-size10.size7, .katex .fontsize-ensurer.reset-size10.size7 { font-size: 0.578592em; }
+.katex .sizing.reset-size10.size8, .katex .fontsize-ensurer.reset-size10.size8 { font-size: 0.694311em; }
+.katex .sizing.reset-size10.size9, .katex .fontsize-ensurer.reset-size10.size9 { font-size: 0.833173em; }
+.katex .sizing.reset-size10.size10, .katex .fontsize-ensurer.reset-size10.size10 { font-size: 1em; }
+.katex .sizing.reset-size10.size11, .katex .fontsize-ensurer.reset-size10.size11 { font-size: 1.19961em; }
+.katex .sizing.reset-size11.size1, .katex .fontsize-ensurer.reset-size11.size1 { font-size: 0.200965em; }
+.katex .sizing.reset-size11.size2, .katex .fontsize-ensurer.reset-size11.size2 { font-size: 0.241158em; }
+.katex .sizing.reset-size11.size3, .katex .fontsize-ensurer.reset-size11.size3 { font-size: 0.28135em; }
+.katex .sizing.reset-size11.size4, .katex .fontsize-ensurer.reset-size11.size4 { font-size: 0.321543em; }
+.katex .sizing.reset-size11.size5, .katex .fontsize-ensurer.reset-size11.size5 { font-size: 0.361736em; }
+.katex .sizing.reset-size11.size6, .katex .fontsize-ensurer.reset-size11.size6 { font-size: 0.401929em; }
+.katex .sizing.reset-size11.size7, .katex .fontsize-ensurer.reset-size11.size7 { font-size: 0.482315em; }
+.katex .sizing.reset-size11.size8, .katex .fontsize-ensurer.reset-size11.size8 { font-size: 0.578778em; }
+.katex .sizing.reset-size11.size9, .katex .fontsize-ensurer.reset-size11.size9 { font-size: 0.694534em; }
+.katex .sizing.reset-size11.size10, .katex .fontsize-ensurer.reset-size11.size10 { font-size: 0.833601em; }
+.katex .sizing.reset-size11.size11, .katex .fontsize-ensurer.reset-size11.size11 { font-size: 1em; }
+.katex .delimsizing.size1 { font-family: KaTeX_Size1; }
+.katex .delimsizing.size2 { font-family: KaTeX_Size2; }
+.katex .delimsizing.size3 { font-family: KaTeX_Size3; }
+.katex .delimsizing.size4 { font-family: KaTeX_Size4; }
+.katex .delimsizing.mult .delim-size1 > span { font-family: KaTeX_Size1; }
+.katex .delimsizing.mult .delim-size4 > span { font-family: KaTeX_Size4; }
+.katex .nulldelimiter { display: inline-block; width: 0.12em; }
+.katex .delimcenter { position: relative; }
+.katex .op-symbol { position: relative; }
+.katex .op-symbol.small-op { font-family: KaTeX_Size1; }
+.katex .op-symbol.large-op { font-family: KaTeX_Size2; }
+.katex .op-limits > .vlist-t { text-align: center; }
+.katex .accent > .vlist-t { text-align: center; }
+.katex .accent .accent-body:not(.accent-full) { width: 0px; }
+.katex .accent .accent-body { position: relative; }
+.katex .overlay { display: block; }
+.katex .mtable .vertical-separator { display: inline-block; margin: 0px -0.025em; border-right: 0.05em solid; }
+.katex .mtable .vs-dashed { border-right: 0.05em dashed; }
+.katex .mtable .arraycolsep { display: inline-block; }
+.katex .mtable .col-align-c > .vlist-t { text-align: center; }
+.katex .mtable .col-align-l > .vlist-t { text-align: left; }
+.katex .mtable .col-align-r > .vlist-t { text-align: right; }
+.katex .svg-align { text-align: left; }
+.katex svg, .screenShotTempCanvas { display: block; position: absolute; width: 100%; height: inherit; fill: currentcolor; stroke: currentcolor; fill-rule: nonzero; fill-opacity: 1; stroke-width: 1; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-dasharray: none; stroke-dashoffset: 0; stroke-opacity: 1; }
+.katex svg path { stroke: none; }
+.katex .stretchy { width: 100%; display: block; position: relative; overflow: hidden; }
+.katex .stretchy::before, .katex .stretchy::after { content: ""; }
+.katex .hide-tail { width: 100%; position: relative; overflow: hidden; }
+.katex .halfarrow-left { position: absolute; left: 0px; width: 50.2%; overflow: hidden; }
+.katex .halfarrow-right { position: absolute; right: 0px; width: 50.2%; overflow: hidden; }
+.katex .brace-left { position: absolute; left: 0px; width: 25.1%; overflow: hidden; }
+.katex .brace-center { position: absolute; left: 25%; width: 50%; overflow: hidden; }
+.katex .brace-right { position: absolute; right: 0px; width: 25.1%; overflow: hidden; }
+.katex .x-arrow-pad { padding: 0px 0.5em; }
+.katex .x-arrow, .katex .mover, .katex .munder { text-align: center; }
+.katex .boxpad { padding: 0px 0.3em; }
+.katex .fbox { box-sizing: border-box; border: 0.04em solid black; }
+.katex .fcolorbox { box-sizing: border-box; border: 0.04em solid; }
+.katex .cancel-pad { padding: 0px 0.2em; }
+.katex .cancel-lap { margin-left: -0.2em; margin-right: -0.2em; }
+.katex .sout { border-bottom-style: solid; border-bottom-width: 0.08em; }
+.output_wrapper pre code { display: -webkit-box !important; } 
+.output_wrapper .hljs{color: rgb(169, 183, 198); background: rgb(40, 43, 46); display: block; overflow-x: auto; padding: 0.5em;}
+
+.output_wrapper .hljs-params{color: rgb(255, 152, 35);}
+
+.output_wrapper .hljs-number,.output_wrapper  .hljs-literal,.output_wrapper  .hljs-symbol,.output_wrapper  .hljs-bullet{color: rgb(174, 135, 250);}
+
+.output_wrapper .hljs-function,.output_wrapper  .hljs-built_in,.output_wrapper  .hljs-name,.output_wrapper  .hljs-keyword,.output_wrapper  .hljs-selector-tag,.output_wrapper  .hljs-deletion{color: rgb(248, 35, 117);}
+
+.output_wrapper .hljs-variable,.output_wrapper  .hljs-template-variable,.output_wrapper  .hljs-link{color: rgb(98, 151, 85);}
+
+.output_wrapper .hljs-comment,.output_wrapper  .hljs-quote{color: rgb(128, 128, 128);}
+
+.output_wrapper .hljs-meta{color: rgb(91, 218, 237);}
+
+.output_wrapper .hljs-string,.output_wrapper  .hljs-attribute,.output_wrapper  .hljs-addition{color: rgb(238, 220, 112);}
+
+.output_wrapper .hljs-attr,.output_wrapper  .hljs-section,.output_wrapper  .hljs-title,.output_wrapper  .hljs-type{color: rgb(165, 218, 45);}
+
+.output_wrapper .hljs-selector-class{color: rgb(165, 218, 45);}
+
+.output_wrapper .hljs-emphasis{font-style: italic;}
+
+.output_wrapper .hljs-strong{font-weight: bold;}
+ 
+.output_wrapper pre code {line-height: 18px; font-size: 14px; font-weight: normal; word-spacing: 0px; letter-spacing: 0px;} 
+.output_wrapper{font-size: 15px; color: rgb(62, 62, 62); line-height: 1.8; word-spacing: 2px; letter-spacing: 2px; font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif; background-image: linear-gradient(90deg, rgba(50, 0, 0, 0.05) 3%, rgba(0, 0, 0, 0) 3%), linear-gradient(360deg, rgba(50, 0, 0, 0.05) 3%, rgba(0, 0, 0, 0) 3%); background-size: 20px 20px; background-position: center center;}
+
+.output_wrapper *{font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;}
+
+.output_wrapper p{margin: 1.7em 0px;}
+
+.output_wrapper h1,.output_wrapper  h2,.output_wrapper  h3,.output_wrapper  h4,.output_wrapper  h5,.output_wrapper  h6{margin: 1.6em 0px; font-weight: bold;}
+
+.output_wrapper h1{font-size: 1.6em;}
+
+.output_wrapper h2{font-size: 1.4em;}
+
+.output_wrapper h3{font-size: 1.3em;}
+
+.output_wrapper h4{font-size: 1.2em;}
+
+.output_wrapper h5{font-size: 1em;}
+
+.output_wrapper h6{font-size: 1em;}
+
+.output_wrapper h3{border-bottom: 2px solid rgb(239, 112, 96); font-size: 1.3em;}
+
+.output_wrapper h3 span{display: inline-block; font-weight: normal; background: rgb(239, 112, 96); color: rgb(255, 255, 255); padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px; margin-right: 3px;}
+
+.output_wrapper h3::after{display: inline-block; content: " "; vertical-align: bottom; border-bottom: 36px solid rgb(239, 235, 233); border-right: 20px solid transparent;}
+
+.output_wrapper ul,.output_wrapper  ol{padding-left: 32px;}
+
+.output_wrapper ul{list-style-type: disc;}
+
+.output_wrapper ol{list-style-type: decimal;}
+
+.output_wrapper li *{}
+
+.output_wrapper li{margin-bottom: 0.5em;}
+
+.output_wrapper .code_size_default{line-height: 18px; font-size: 14px; font-weight: normal; word-spacing: 0px; letter-spacing: 0px;}
+
+.output_wrapper .code_size_tight{line-height: 15px; font-size: 11px; font-weight: normal; word-spacing: -3px; letter-spacing: 0px;}
+
+.output_wrapper pre code{font-family: Consolas, Inconsolata, Courier, monospace; border-radius: 0px;}
+
+.output_wrapper blockquote{display: block; padding: 15px 15px 15px 1rem; font-size: 0.9em; margin: 1em 0px; color: rgb(0, 0, 0); border-left: 5px solid rgb(239, 112, 96); background: rgb(239, 235, 233); overflow: auto; overflow-wrap: normal; word-break: normal;}
+
+.output_wrapper blockquote p{margin: 0px;}
+
+.output_wrapper a{text-decoration: none; color: rgb(30, 107, 184); overflow-wrap: break-word;}
+
+.output_wrapper strong{font-weight: bold; color: rgb(233, 105, 0);}
+
+.output_wrapper em{color: rgb(98, 0, 234);}
+
+.output_wrapper del{font-style: italic; text-decoration: none; color: rgb(41, 98, 255);}
+
+.output_wrapper strong em{font-weight: bold; color: rgb(197, 17, 98);}
+
+.output_wrapper hr{height: 1px; margin: 1.5rem 0px; border-right: none; border-bottom: none; border-left: none; border-image: initial; border-top: 1px dashed rgb(165, 165, 165);}
+
+.output_wrapper code{overflow-wrap: break-word; padding: 2px 4px; border-radius: 4px; margin: 0px 2px; color: rgb(248, 35, 117); background: rgb(248, 248, 248);}
+
+.output_wrapper img{display: block; margin: 0px auto; max-width: 100%;}
+
+.output_wrapper figcaption{margin-top: 10px; text-align: center; color: rgb(153, 153, 153); font-size: 0.7em;}
+
+.output_wrapper table{display: table; width: 100%; text-align: left;}
+
+.output_wrapper tbody{border: 0px;}
+
+.output_wrapper table tr{border-width: 1px 0px 0px; border-right-style: initial; border-bottom-style: initial; border-left-style: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image: initial; border-top-style: solid; border-top-color: rgb(204, 204, 204); background-color: white;}
+
+.output_wrapper table tr:nth-child(2n){background-color: rgb(248, 248, 248);}
+
+.output_wrapper table tr th,.output_wrapper  table tr td{font-size: 1em; border: 1px solid rgb(204, 204, 204); padding: 0.5em 1em; text-align: left;}
+
+.output_wrapper table tr th{font-weight: bold; background-color: rgb(240, 240, 240);}
+
+.output_wrapper .katex-display{font-size: 1.22em;}
+
+.output_wrapper .katex{padding: 8px 3px;}
+
+.output_wrapper .katex-display > .katex{display: inline-block; text-align: center; padding: 3px;}
+
+.output_wrapper .katex img{display: inline-block; vertical-align: middle;}
+
+.output_wrapper a[href^="#"] sup{vertical-align: super; margin: 0px 2px; padding: 1px 3px; color: rgb(255, 255, 255); background: rgb(102, 102, 102); font-size: 0.7em;}
+
+.output_wrapper .task-list-list{list-style-type: none;}
+
+.output_wrapper .task-list-list.checked{color: rgb(62, 62, 62);}
+
+.output_wrapper .task-list-list.uncheck{color: rgb(191, 193, 191);}
+
+.output_wrapper .task-list-list .icon_uncheck,.output_wrapper  .task-list-list .icon_check{display: inline-block; vertical-align: middle; margin-right: 10px;}
+
+.output_wrapper .task-list-list .icon_check::before{content: "√"; border: 2px solid rgb(62, 62, 62); color: red;}
+
+.output_wrapper .task-list-list .icon_uncheck::before{content: "x"; border: 2px solid rgb(191, 193, 191); color: rgb(191, 193, 191);}
+
+.output_wrapper .task-list-list .icon_check::before,.output_wrapper  .task-list-list .icon_uncheck::before{padding: 2px 8px 2px 5px; border-radius: 5px;}
+
+.output_wrapper .toc{margin-left: 25px;}
+
+.output_wrapper .toc_item{display: block;}
+
+.output_wrapper .toc_left{margin-left: 25px;}
+ 
+</style>  
+  <style type="text/css" id="export_setting_css">body { width: 100%; margin: 0px; padding: 0px; background: rgb(81, 154, 178); }
+#export_content { margin: 40px 20%; padding: 20px; border: 1px solid rgb(149, 155, 111); background: rgb(255, 255, 255); }</style>  
+
+</head><body><div id="export_content"><div class="output_wrapper" id="output_wrapper_id"><figure><img src="https://img-blog.csdnimg.cn/img_convert/f624544138ac5e8f9d6851002393486d.png" alt="标题" title="标题"><figcaption>标题</figcaption></figure>
+<h1 id="hmysql"><span>《MySQL面试小抄》查询缓存</span></h1>
+<p>我是肥哥，一名不专业的面试官！</p>
+<p>我是囧囧，一名积极找工作的小菜鸟！</p>
+<blockquote>
+  <p><strong>囧囧表示：小白面试最怕的就是面试官问的知识点太笼统，自己无法快速定位到关键问题点！！！</strong></p>
+</blockquote>
+<hr>
+<p>本期主要面试考点</p>
+<pre><code class="hljs">面试官考点之简述一下什么是查询缓存机制？<br></code></pre>
+<pre><code class="hljs">面试官考点之查询如何命中缓存？<br></code></pre>
+<pre><code class="hljs">面试官考点之什么场景下SQL和结果集不会被缓存？<br></code></pre>
+<pre><code class="hljs">面试官考点之什么场景下会导致MySQL缓存失效？<br></code></pre>
+<pre><code class="hljs">面试官考点之查询缓存是如何进行内存管理的？<br></code></pre>
+<pre><code class="hljs">面试官考点之MySQL是一次性分配所有的内存空间吗？<br></code></pre>
+<pre><code class="hljs">面试官考点之缓存中的内存碎片无法避免，那么有什么办法优化吗？<br></code></pre>
+<pre><code class="hljs css">面试官考点之<span class="hljs-selector-tag">MySQL4</span><span class="hljs-selector-class">.0</span>提出了查询缓存，它设计出来是为了加速哪些查询场景？<br></code></pre>
+<pre><code class="hljs css">面试官考点之<span class="hljs-selector-tag">MySQL5</span><span class="hljs-selector-class">.6</span>中默认禁用，8<span class="hljs-selector-class">.0</span>以后完全移除，造成这个改变的原因是什么？<br></code></pre>
+<pre><code class="hljs">面试官考点之生产环境要不要开启MySQL缓存？<br></code></pre>
+<hr>
+<figure><img src="https://img-blog.csdnimg.cn/img_convert/eebbb88837ad52345b80db9156876d66.png" alt="qc1" title="qc1"><figcaption>qc1</figcaption></figure>
+<figure><img src="https://img-blog.csdnimg.cn/img_convert/f50a2570770965316fa8165f47f3f054.png" alt="qc2" title="qc2"><figcaption>qc2</figcaption></figure>
+<h3 id="h"><span>面试官考点之简述一下什么是查询缓存机制？</span></h3>
+<p>MySQL服务器高负载情况下，我们需要采取一种措施给服务器减轻压力，一个复杂的查询是非常消耗性能的，</p>
+<p>其中磁盘IO又占据主要资源，缓存是对系统性能优化的一种重要手段。</p>
+<blockquote>
+  <p>查询缓存机制设计是为了从根本上减少磁盘IO次数，MySQL开启缓存后，将SQL和结果集以键值对KV的形式存储在内存中。</p>
+  <p>当相同的SQL再次进入，MySQL识别是相同查询喉，会直接返回缓存在内存中的结果集。</p>
+  <p>避免再次进行一系列复杂的解析优化和磁盘IO过程。</p>
+</blockquote>
+<h3 id="h-1"><span>面试官考点之查询如何命中缓存？</span></h3>
+<pre><code class="hljs sql"><span class="hljs-keyword">select</span>&nbsp;<span class="hljs-keyword">id</span>&nbsp;<span class="hljs-keyword">from</span>&nbsp;<span class="hljs-keyword">user</span>;<br><br><span class="hljs-keyword">select</span>&nbsp;<span class="hljs-keyword">id</span>&nbsp;<span class="hljs-keyword">FROM</span>&nbsp;<span class="hljs-keyword">user</span>;<br></code></pre>
+<blockquote>
+  <p>上面语句能命中缓存吗？</p>
+</blockquote>
+<p>MySQL缓存命中机制有严格苛刻的要求，在判断命中前，MySQL不会对SQL做任何的解析处理。</p>
+<pre><code class="hljs">SQL上的任何字符的不同，如大小写、空格、注释等都会导致缓存不命中<br></code></pre>
+<p>所以上面查询时无法命中缓存的。</p>
+<h3 id="hsql"><span>面试官考点之什么场景下SQL和结果集不会被缓存？</span></h3>
+<p>或者说缓存规则是什么？</p>
+<blockquote>
+  <p>第一种情况：查询语句中包含不确定数据</p>
+</blockquote>
+<pre><code class="hljs vbscript">例如查询语句中包含不确定函数：<span class="hljs-built_in">NOW</span>()、CURRENT_DATE()等。<br><br>因为每次执行这类带了不确定数据的查询所返回结果可能是不同的。<br></code></pre>
+<blockquote>
+  <p>第二种情况：超过了query_cache_limit预设阈值</p>
+</blockquote>
+<pre><code class="hljs">超出了缓存内存能承受的范围，将放弃缓存！<br></code></pre>
+<h3 id="hmysql-1"><span>面试官考点之什么场景下会导致MySQL缓存失效？</span></h3>
+<p>任何对于<strong>表结构或者表数据的更新操作</strong>，一定会造成查询缓存中的数据失效，同时查询缓存值的相关条目也会被清空。</p>
+<p>MySQL判定有更新操作，就会设置所有的查询缓存失效。</p>
+<h3 id="h-2"><span>面试官考点之查询缓存是如何进行内存管理的？</span></h3>
+<p>MySQL服务启动，缓存机制会在内存中开辟一块内存，</p>
+<p>其中会<code>划分出一块区域</code>专用来管理维护缓存数据的<strong>元数据</strong>。</p>
+<p>例如空间内存、数据表和查询结果的映射，SQL和查询结果的映射</p>
+<p>MySQL缓存机制将剩余的空闲空间分为一个个小<strong>数据块</strong>，用来存储缓存结果。</p>
+<pre><code class="hljs">每个小块中存储自身的类型，大小和查询结果数据，还有指向前后内存块的指针<br></code></pre>
+<h3 id="hmysql-2"><span>面试官考点之MySQL是一次性分配所有的内存空间吗？</span></h3>
+<p>MySQL因为无法预知查询结果大小，所以无法为每个查询结果精确分配大小恰好匹配的缓存空间。</p>
+<p>MySQL缓存机制采用的是边查边存，动态的去申请缓存内存。</p>
+<blockquote>
+  <p>一条SQL查询缓存分配内存过程是怎么样的？</p>
+</blockquote>
+<p>当有查询结果需要缓存的时候，MySQL缓存机制会在SQL查询开始（还未得到结果）时就去申请一块内存空间（小数据块），在不断查询中，<code>如果发现不够则继续申请</code>，<code>如果存储完时有空余则释放多余的内存空间</code>。</p>
+<p>如果余下的需要回收的空间很小，小于query_cache_min_res_unit，不能再次被使用，可能会造成内存碎片，影响查询性能。</p>
+<h3 id="h-3"><span>面试官考点之缓存中的内存碎片无法避免，那么有什么办法优化吗？</span></h3>
+<p>没有什么办法能够完全避免内存碎片，但是选择合适的</p>
+<blockquote>
+  <p>query_cache_min_res_unit</p>
+</blockquote>
+<p>可以减少由碎片导致的内存空间浪费。</p>
+<pre><code class="hljs">值太小，则浪费的空间更少，但是会导致频繁的内存块申请操作<br></code></pre>
+<pre><code class="hljs">如果设置得太大，那么碎片会很多<br></code></pre>
+<p><code>调整合适的值其实是在平衡内存浪费和CPU消耗</code></p>
+<blockquote>
+  <p>那么我如何确定这个平衡值？</p>
+</blockquote>
+<p>可以通过内存实际消耗，计算单个查询的平均缓存大小</p>
+<pre><code class="hljs">（query_cache_size&nbsp;-&nbsp;Qcache_free_memory）/&nbsp;Qcache_queries_in_cahce<br></code></pre>
+<p>通过查看闲置内存块数量（Qcahce_free_blocks）来观察碎片。</p>
+<blockquote>
+  <p>如果产生的碎片过多，通过什么方法可以整理碎片？</p>
+</blockquote>
+<pre><code class="hljs">通过FLUSH_QUERY_CAHCE清理碎片<br><br>这个命令将所有的查询缓存重新排序，<br><br>并将所有的空闲空间都聚焦到查询缓存的一块区域上。<br></code></pre>
+<h3 id="hmysql40"><span>面试官考点之MySQL4.0提出了查询缓存，它设计出来是为了加速哪些查询场景？</span></h3>
+<blockquote>
+  <p>1、并发性和查询QPS不高<br>2、被访问的底层数据本质上是静态或半静态的<br>3、查询密集型应用，更新频率非常低而只读查询频率非常高的场景</p>
+</blockquote>
+<h3 id="hmysql5680"><span>面试官考点之MySQL5.6中默认禁用，8.0以后完全移除，造成这个改变的原因是什么？</span></h3>
+<p>理想情况下，上述查询场景非常适合使用查询缓存，但是<code>实际的业务系统都是有CRUD操作</code>的。</p>
+<p>在MySQL里QC是由一个全局锁在控制，每次更新QC的内存块都需要进行锁定，数据更新频繁，就会不断的失效缓存操作，同时缓存失效会造成大量的查询<code>缓存碎片化</code>，还会导致服务器的负载升高，影响数据库的稳定性。</p>
+<p>所以MySQL官方经过抉择，果断移除了查询缓存模块。</p>
+<h3 id="hmysql-3"><span>面试官考点之生产环境要不要开启MySQL缓存？</span></h3>
+<p>建议不开启</p>
+<pre><code class="hljs">根据MySQL官方的测试，如果对一个表执行简单的查询，<br><br>设置每次查询都不一样，<br><br>打开QC后，性能反而下降了13%左右<br></code></pre>
+<p>当然实际业务中，不会都是这种不同的请求，因此实际影响应该比这个小一些。</p>
+<pre><code class="hljs">MySQL查询缓存的目的是为了提升查询性能，但它本身也是有性能开销的。<br></code></pre>
+<p>需要在合适的<code>业务场景下（读写压力模型）</code>使用</p>
+<pre><code class="hljs">不合适的业务场景不但不能提升查询性能，查询缓存反而会变成MySQL的瓶颈。<br><br>对写密集型的应用场景来说，禁用缓存反而提高性能。<br></code></pre>
+<hr>
+<p><strong>推荐MySQL相关休闲阅读</strong>：</p>
+<p>第一段，索引面试题推荐阅读一：<a href="https://mp.weixin.qq.com/s?__biz=Mzg3NjU0NDE4NQ==&amp;mid=2247483708&amp;idx=1&amp;sn=2bba08c79535caad22571efa8f698aa6&amp;chksm=cf31e8eaf84661fc013c8fffd5580f5793c157c5639afdf1a3daa2381be4f6a3347690c770b7#rd">【来自面试官一面MySQL索引的连续灵魂拷问】</a></p>
+<p>第二段，索引面试题推荐阅读二：<a href="https://mp.weixin.qq.com/s?__biz=Mzg3NjU0NDE4NQ==&amp;mid=2247483727&amp;idx=1&amp;sn=de099056011f1da943a0f42843e0c75b&amp;chksm=cf31e899f846618f8d8135ace8b3ca3987a255295b603c463eecd5321806a51cc45e5815ece3#rd">【来自面试官二面MySQL索引的连续灵魂拷问】</a></p>
+<p>第三段，索引失效场景面试题推荐阅读：<a href="https://mp.weixin.qq.com/s?__biz=Mzg3NjU0NDE4NQ==&amp;mid=2247483801&amp;idx=1&amp;sn=14f7f9e7023abf045c3322a00815f79b&amp;chksm=cf31e84ff8466159498f5db66ed3c028587caabdeabe57aaa5f4612c00ea236e6c6e5bf77a66#rd">【面试官：说说你遇到的MySQL索引失效场景吧，你是如何解决的？】</a></p>
+<p>第四段，查询缓存面试题推荐阅读：<a href="https://mp.weixin.qq.com/s?__biz=Mzg3NjU0NDE4NQ==&amp;mid=2247483836&amp;idx=1&amp;sn=24d090fc782b3855ab4c8c20d139892e&amp;chksm=cf31e86af846617cbee4c7e2deb62fc18fe6e5099e2c20f7cd029a1dcbf9fb4646cfb02a4474#rd">【面试官：什么场景下会导致MySQL缓存失效？生产环境到底要不要开启MySQL缓存？】</a></p>
+<p>第五段，待更新？推荐休闲阅读：<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NjU0NDE4NQ==&amp;action=getalbum&amp;album_id=2218140423993212933#wechat_redirect">【囧么肥事】</a></p>
+<p>更多精彩内容，欢迎关注微信公众号：<strong>囧么肥事</strong> (或搜索：jiongmefeishi)</p>
+<figure><img src="https://img-blog.csdnimg.cn/img_convert/cb3a296f8edbcc70370d4eb569c40634.png" alt="囧么肥事" title="囧么肥事"><figcaption>囧么肥事</figcaption></figure></div></div></body>
+</html>
