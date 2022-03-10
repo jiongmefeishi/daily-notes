@@ -125,11 +125,16 @@ Kubernetes 提供了一个可弹性运行分布式系统的框架。
 
 
 
+-----
+
+**Kubernetes 推荐学习书**
+> Kubernetes权威指南PDF
+> 链接:https://pan.baidu.com/s/11huLHJkCeIPZqSyLEoUEmQ 提取码:sa88
 
 
-----
 
 
+-----
 
  **《Kubernetes-企业级容器应用托管》-持续胡说八道**
 
@@ -147,4 +152,11 @@ Kubernetes 提供了一个可弹性运行分布式系统的框架。
 
 第七段：推荐阅读：[【k8s家族Pod辅助小能手Init容器认知答疑？】](https://mp.weixin.qq.com/s?__biz=Mzg3NjU0NDE4NQ==&mid=2247484153&idx=1&sn=2d6f43036cf2e4cea5fa2aebc4b67ebf&chksm=cf31eb2ff846623904c34e84943576ccf1714d73e042bdc9a4ce584050caf3fc0a85ff5c8908#rd)
 
-第八段：待更新？推荐休闲阅读：[【囧么肥事】](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NjU0NDE4NQ==&action=getalbum&album_id=2218140423993212933#wechat_redirect)
+第八段：推荐阅读：[【k8s初面考点ReplicaSet副本集极限9连击你懂了吗？】](https://mp.weixin.qq.com/s?__biz=Mzg3NjU0NDE4NQ==&mid=2247484188&idx=1&sn=b8b06c4abe2f5d56556235f867ec10d0&chksm=cf31eacaf84663dc0dd330e4b5d183c06a2c92f8a0e42c8c76b30d67e1ba90381f5bc7c5f780#rd)
+
+第九段：推荐阅读：[【生产环境想要对某个Pod排错、数据恢复、故障复盘有什么办法？】](https://mp.weixin.qq.com/s?__biz=Mzg3NjU0NDE4NQ==&mid=2247484206&idx=1&sn=631183744568cd7756cb3d747595c479&chksm=cf31eaf8f84663eed04cfdd2c04dd8f1522a3c5bf43cbf4a24dd2e3a335fc4189f1269627e8f#rd)
+
+第十段：推荐阅读：[【跟k8s工作负载Deployments的缘起缘灭】](https://mp.weixin.qq.com/s?__biz=Mzg3NjU0NDE4NQ==&mid=2247484214&idx=1&sn=7a0a593abbcd34347351bcc3ecd6785a&chksm=cf31eae0f84663f61600e14108ebd7b0db326d26d1f78ca7686e685c4de4728af80b54de3b4c#rd)
+
+后续未更新？推荐休闲阅读：[【囧么肥事】](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3NjU0NDE4NQ==&action=getalbum&album_id=2218140423993212933#wechat_redirect)
+
