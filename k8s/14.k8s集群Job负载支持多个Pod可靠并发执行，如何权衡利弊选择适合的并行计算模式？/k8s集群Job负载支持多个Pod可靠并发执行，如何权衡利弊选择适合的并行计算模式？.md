@@ -215,7 +215,6 @@ Job 用来代表整个任务，当成功的 Pod 个数达到 `.spec.completions`
 
 ![](https://img-blog.csdnimg.cn/img_convert/477a68dfe25731a86061e9ba62231dcc.gif)
 
-
 **Kubernetes 推荐学习书**
 
 > Kubernetes权威指南PDF
@@ -224,3 +223,4 @@ Job 用来代表整个任务，当成功的 Pod 个数达到 `.spec.completions`
 
 
 k8s系列所有问题更新记录：[GitHub](https://gitee.com/jiongmefeishi/JMFS-Interview-Notebook-Kubernetes)
+
